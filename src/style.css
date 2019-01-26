@@ -1,0 +1,275 @@
+html *{
+	box-sizing: border-box;
+	font-family: Tahoma, Geneva, sans-serif;
+  }
+  
+  body{
+	padding: 0;
+	margin: 0;
+	background-color: #f0f0f0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: stretch;
+	align-content:center;
+  }
+  
+  .dropdownmenu ul, .dropdownmenu li {
+	  margin: 0;
+	  padding: 0;
+  }
+  .dropdownmenu ul {
+	  background: #f0f0f0;
+	  list-style: none;
+
+  }
+  .dropdownmenu li {
+	  float: right;
+	  position: relative;
+    width:auto;   
+  }
+
+  .dropdownmenu a {
+	  background: #f0f0f0;
+	  color: #FFFFFF;
+	  display: block; 
+	  font: bold 12px/20px sans-serif;
+	  padding: 10px 25px;
+	  text-align: center;
+	  text-decoration: none;
+	  -webkit-transition: all .25s ease;
+	  -moz-transition: all .25s ease;
+	  -ms-transition: all .25s ease;
+	  -o-transition: all .25s ease;
+	  transition: all .25s ease;
+  }
+  /*.dropdownmenu li:hover a {
+	  background: #4e4e4e;
+  }*/
+  .submenu {
+	  left: 0;
+	  opacity: 0;
+	  position: absolute;
+	  top: 25px;
+	  visibility: hidden;
+	  z-index: 99;
+  }
+  li:hover ul.submenu {
+	  opacity: 1;
+	  top: 40px;	/* adjust this as per top nav padding top & bottom comes */
+	  visibility: visible;
+  }
+  .submenu li {
+	  float: none;
+	  width: 100%;
+  }
+  .submenu a:hover {
+	  background: #d75ea1;
+  }
+  .submenu a {
+	  background-color:#f0f0f0;
+  }
+/*----------------------------------------------------------------------------------------*/
+.node_info{
+  float:right;
+  height:2rem;
+  vertical-align: middle;
+}
+.details{
+	margin-right: 20px;
+	margin-left: 20px; 
+}
+.content-right {
+	background-color: #c4c3c3;
+	float:right;
+	margin-right: 20px;
+	width: 47%;
+	height:30vw;
+}
+.content-left {
+	background-color: #c4c3c3;
+	float:left;
+	margin-left: 20px;
+	width: 47%;
+	height:60vw;
+  overflow-y: scroll;
+  
+}
+.wrapper {
+  border: 1px solid #4e4e4e;
+  background-color: #c4c3c3;
+  padding: 20px;
+  height: 50vh;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100%;
+}
+.profilebody{
+	margin-right: 20px;
+	margin-left: 20px; 
+}
+
+.summary_box{
+	background-color: #c4c3c3;
+	float:left;
+	margin-left: 20px;
+	width: 47%;
+	height:15vw;
+}
+.BlockNo{
+  font-size:2rem;
+}
+#last_block{
+  font-size:3rem;
+  float:left;
+  margin-left:5%;
+}
+.pricehis{
+	background-color: #c4c3c3;
+  float:right;
+	margin-right: 20px;
+	width: 47%;
+	height:15vw;
+}
+.Session{
+  float:left;
+  margin-left: 20%;
+  font-size:3rem;
+}
+.Session_len{
+  float:left;
+}
+.Session_index{
+  float:right;
+  margin-right:5%;
+  font-size:3rem;
+}
+
+.validatorDetail{
+  float:right;
+}
+.validatorIcon{
+  float:left;
+}
+.Session_curr{
+  float:left;
+}
+.Session_len{
+  float:left;
+}
+.count_up{
+  width:10px;
+  float:left;
+  margin-left:10px;
+  margin-top:25px;
+  font-size:150%;
+}
+.spacegap{
+	background-color: white;
+	height:3vw;
+}
+
+
+.listentoblockNo{
+	background-color: white;
+	float:left;
+	font-size:3rem
+}
+
+.listentoblockhash{
+	background-color: white;
+	margin-top: 10px;
+	margin-right: 5px;
+	float:right;
+	font-size:smaller;
+	
+}
+.BlockInfo{
+  background-color: white;
+  font-size:large;
+  margin-top: 5px; 
+  margin-bottom: 5px;
+  margin-right: 5px;
+  height:5vw;
+}
+
+.stateRoot{
+  float:right;
+}
+
+.extrinsicaRoot{
+  float:right;
+}
+
+.pHash{
+  float:right;
+}
+h2 {
+  margin: 0 0 20px;
+}
+
+p {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: #d75ea1;
+
+}
+
+a:hover {
+  color: #cc3387;
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+ul.ul-2 {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #4d4d4d;
+}
+
+li {
+float: left;
+border-right:1px solid white;
+}
+
+li:last-child {
+border-right: 1px solid white;
+}
+
+li a {
+display: block;
+color: white;
+text-align: center;
+padding: 12px 15px;
+text-decoration: none;
+}
+
+li a:hover:not(.active) {
+background-color: #c7c7c7;
+}
+
+.active {
+background-color: #c7c7c7;
+}
+.console {
+  display: none;
+}
+
+
+@media screen and (max-width: 27%) {
+  .content-left {
+    flex-direction: column;
+  }
+  .wrapper {
+    width: 27%;
+    max-height: 80vh;
+  }
+}
