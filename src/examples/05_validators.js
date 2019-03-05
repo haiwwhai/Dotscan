@@ -6,7 +6,7 @@ import {
 var date1=new Date();  //define time 
  //https://polkadot.js.org/api/examples/promise/02_listen_to_blocks/
 export default async (provider) => {
-  const wrapper = createWrapper('validators', 'validators','#content');
+  const wrapper = createWrapper('validators', 'Validators','#content');
   const wrapper2 = createDiv('v_list', 'v-List','.validators');
   
   try {
@@ -20,16 +20,38 @@ export default async (provider) => {
     //createElement(`accountNonce(${ALICE}) ${accountNonce}`, wrapper);
     //createElement(`blockPeriod ${blockPeriod.toNumber()} seconds`, wrapper);
     // Retrieve the balances for all validators
-    const validatorBalances = await Promise.all(
-      validators.map(authorityId => api.query.balances.freeBalance(authorityId))
-    );
-    const nominatoraddress = await Promise.all([
-      validators.map(authorityId => api.query.staking.currentNominatorsFor(authorityId))
-      ]);
-      //console.log(validators.authorityId[0]);
+    //const validatorBalances = await Promise.all(
+    //  validators.map(authorityId => api.query.balances.freeBalance(authorityId))
+    //);
+    //const nominatoraddress = await Promise.all([
+    //  validators.map(authorityId => api.query.staking.currentNominatorsFor(authorityId))
+    //  ]);
+      //console.log(validators);
       //console.log(nominatoraddress[0].toString());
       //console.log(validatorBalances[0].toString());
-      if (validators.length > 0) {        
+      if (validators.length > 0) {
+        // Retrieve the balances for all validators
+        //createLog('Validators', wrapper, 'highlight');
+        const validatorBalances = await Promise.all(
+          validators.map(authorityId => api.query.balances.freeBalance(authorityId)),
+ 
+        );
+  
+        validators.forEach((authorityId, index) => {
+          //createLog(`Validator: ${authorityId.toString()} <br />Balance: ${validatorBalances[index].toString()}`, wrapper);
+          createDiv('validator_set', 'validators_set'+index.toString(),'.v_list');
+          createDiv('validatoricon', 'icon_'+authorityId.toString(),'#validators_set'+index.toString()); 
+          createDiv('validatorDetail', authorityId.toString(),'#validators_set'+index.toString()); 
+          //createtext('validator_Seq', 'content','Validator '+index.tostring());     
+          //createtext('validator_address', '#Detail_'+authorityId.toString(),'Address: '+authorityId.toString()); 
+          //createtext('validator_balance','#Detail_'+authorityId.toString(),'Balance: '+validatorBalances[index]);
+          //createtext('validator_nominator','#Detail_'+authorityId.toString(),'Balance: '+string[i].nominator);
+          //console.log(string[i].nominator);   
+          //identifyicon(authorityId.toString(),64,5,'#icon_'+authorityId.toString());
+        });
+      }
+
+       /*      
       const string = validators.map((authorityId, index) => ({
       address: authorityId.toString(),
       balance: validatorBalances[index].toString(),
@@ -39,20 +61,28 @@ export default async (provider) => {
       };
       //console.log(string);
       //console.log(validators.length, string[0].address);
-    
-      for (var i=0; i<validators.length; i++){
-      createDiv('validator_set', 'validators_set'+i.toString(),'.v_list');
-      createDiv('validatoricon', 'icon_'+string[i].address,'#validators_set'+i.toString()); 
-      //createDiv('validatoricon', 'icon_'+123,'#validators_set'+i.toString()); 
-      createDiv('validatorDetail', 'Detail_'+string[i].address,'#validators_set'+i.toString()); 
-      createtext('validator_Seq', '#Detail_'+string[i].address,'Validator '+i);     
-      createtext('validator_address', '#Detail_'+string[i].address,'Address: '+string[i].address); 
-      createtext('validator_balance','#Detail_'+string[i].address,'Balance: '+string[i].balance);
-      createtext('validator_nominator','#Detail_'+string[i].address,'Balance: '+string[i].nominator);
-      console.log(string[i].nominator);   
-      identifyicon(string[i].address,64,5,'#icon_'+string[i].address);      
+*/ 
+      var list=document.getElementsByClassName("validatorDetail");  
+      //var list2=document.getElementsByClassName("validatorDetail"); 
+      //console.log(list[0].id);     
+      if (validators.length > 0) {       
+          for (var i=0; i<validators.length; i++){
+          
+          //createDiv('validator_set', 'validators_set'+i.toString(),'.v_list');
+          //createDiv('validatoricon', 'icon_'+string[i].address,'#validators_set'+i.toString()); 
+          //createDiv('validatoricon', 'icon_'+123,'#validators_set'+i.toString()); 
+          //createDiv('validatorDetail', 'Detail_'+string[i].address,'#validators_set'+i.toString()); 
+          createtext('validator_Seq', list[i].id,'Validator '+i);     
+          createtext('validator_address',list[i].id,'Address: '+list[i].id); 
+          //createtext('validator_balance',list[i].id,'Balance: '+validatorBalances[i]);
+          //createtext('validator_nominator','#Detail_'+string[i].address,'Balance: '+string[i].nominator);
+          //console.log(string[i].nominator);   
+          identifyicon(list[i].id,64,5,'icon_'+list[i].id); 
+               
       }
-    
+      
+    }
+      
 
   } catch (e) {
     createError(e, wrapper);
@@ -126,6 +156,6 @@ function identifyicon(account_id,size_all,size_small,id){
     circ[i].setAttribute("fill",'rgb('+color[i,0]+','+color[i,1]+','+color[i,2]+')');      
   }
   //SVG元素添加到页面内显示
-  const app = document.querySelector(id);
+  const app = document.getElementById(id);
   app.appendChild(svg);
 }

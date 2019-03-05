@@ -13,12 +13,12 @@ export default async (provider) => {
   const div_clock = createDiv('clock_count','clock_count', '.listen-to-blocks');
   const div_era = createDiv('era','era','.listen-to-blocks');
   const div_era_curr = createDiv('era_curr','era_curr', '.era');
-  createtext('dash','#era','/');
+  createtext('dash','era','/');
   const div_era_len = createDiv('era_len','era_len','.era');
   const div_era_index = createDiv('era_index','era_index', '.era');
   const div_session = createDiv('session','session', '.listen-to-blocks');  
   const div_session_curr = createDiv('session_curr','session_curr', '.session'); 
-  createtext('dash','#session','/');
+  createtext('dash','session','/');
   const div_session_len = createDiv('session_len','session_len', '.session');
   const div_session_index = createDiv('session_index','session_index', '.session');
 

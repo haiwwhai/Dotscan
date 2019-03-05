@@ -41,7 +41,7 @@ export const createBlockdetails = (wrapperClass, block_no, id_or_classname) => {
   return div;
 };
 export const createtext = (wrapperClass, id_or_classname,content) => {
-  const app = document.querySelector(id_or_classname);
+  const app = document.getElementById(id_or_classname);
   const div = document.createElement('p'); 
   div.classList.add(wrapperClass);
   div.innerText = content;
