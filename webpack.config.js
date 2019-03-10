@@ -8,7 +8,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
-    port: 9000
+    port: 5000
   },
   module: {
     rules: [
@@ -38,7 +38,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html',
-      favicon: './favicon.ico',
+      favicon: './icon.png',
       files: {
         css: ['./src/style.css']
       }
